@@ -10,7 +10,11 @@
     "url": "www.toolitup.com"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "angular",
+    "toolitup",
+    "ng-attr-hint",
+    "hint"
   ],
   "main": "Gruntfile.js",
   "engines": {
