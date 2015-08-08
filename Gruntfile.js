@@ -32,22 +32,15 @@ module.exports = function (grunt) {
     },
 
     // Configuration to be run (and then tested).
-    angular_hint: {
+    'ng-attr-hint': {
       default_options: {
-        options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        files: ['/*.html']
       },
       custom_options: {
         options: {
-          separator: ': ',
-          punctuation: ' !!!'
+          skip: ['ngInit']
         },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
+        files: ['/*.html']
       }
     },
 
@@ -63,7 +56,7 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'angular_hint', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'ng-attr-hint', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

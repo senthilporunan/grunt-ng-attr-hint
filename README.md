@@ -2,6 +2,10 @@
 
 > A static linting tool for angular ng directives
 
+## Demo
+
+![ng-attr-hint](https://gist.githubusercontent.com/princejwesley/accb5688eaf40ae338af/raw/38549764e5ae53fd9324b8c8f0d6ead6d43d9f6c/ng-attr-hint.png)
+
 ## Getting Started
 This plugin requires Grunt.
 
