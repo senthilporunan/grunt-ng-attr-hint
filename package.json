@@ -1,9 +1,9 @@
 {
-  "name": "grunt-angular-hint",
+  "name": "grunt-ng-attr-hint",
   "version": "0.0.1",
   "description": "A static linting tool for angular ng directives",
-  "homepage": "https://github.com/senthilporunan/grunt-angular-hint.git",
-  "repository": "https://github.com/senthilporunan/grunt-angular-hint.git",
+  "homepage": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
+  "repository": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
   "author": {
     "name": "Senthil Porunan",
     "email": "senthilraja39@gmail.com",

@@ -11,41 +11,70 @@ var chalk = require('chalk');
 
 module.exports = function (grunt) {
 
-  grunt.registerMultiTask('ng-attr-hint', 'A static linting tool for angular ng directives', function () {
+	grunt.registerMultiTask('ng-attr-hint', 'A static linting tool for angular ng directives', function () {
 
-	var ngAttrHint = require('ng-attr-hint');
-	
-    this.files.forEach(function (file) {
-      var src = file.src.filter(function (filepath) {
-		grunt.log.writeln('Senthil: File : ' + file + ' FilePath: '+filepath);
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
-        }
-      });
-	  
-	  if (!src.length) {
-            grunt.fail.warn('Destination (' + chalk.cyan(file.dest) + ') not written because src files were empty.');
-      }
-	   var fileName = src[0];
+		var ngAttrHint = require('ng-attr-hint');
+		var done = this.async();
+		var options = this.options();
+		
+		this.files.forEach(function (file) {
+			var src = file.src.filter(function (filepath) {
 
-	   grunt.verbose.writeln('Checking if file ' + chalk.cyan(filename) + ' has ng-attributes to convert');
-	   ngAttrHint({
-		   files: [filepath + '/' + fileName]
-	   }, function(err, data) {
-		   if (err) {
-			   grunt.fail.warn('ngArrtHint (' + fileName + ') Throwing failure message as ' + err);
-		   }
-		   else {
-			ngAttrHint.format(data).forEach(function(o) {
-				grunt.log.writeln(o);
+				if (!grunt.file.exists(filepath)) {
+					grunt.log.warn('Source file "' + filepath + '" not found.');
+					return false;
+				} else {
+					return true;
+				}
 			});
-		   }
-	   }
-	   );
-    });
-  });
+		
+			if (!src.length) {
+				grunt.fail.warn('Destination (' + chalk.cyan(file.dest) + ') not written because src files were empty.');
+			}
+			
+			src.forEach(function(fileName) {
+				
+				var result = ngAttrHint({files: [fileName]}, function(err, data) {
+					if(err) {
+						grunt.log.error(err);
+						done(false);
+					}
+					else  {
+						ngAttrHint.format(data).forEach(function(o, index) {
+							formatOptions(data, o, index);
+						});
+						done();
+					}
+				});
+			});
+			
+			var formatOptions = function(data, o, index) {
+				var type = data[index]['type'];
+				var attrs = data[index]['attrs'];
 
+				var isBreak = data[index]['attrs'].some(function(attr) {
+					var isBreak = options.skip.some(function(skip) {
+						if (skip.indexOf(attr) !== -1) 	return true;
+					});
+					return isBreak;
+				});
+				
+				if (!isBreak) printMsgs(type, o);
+			};
+			
+			var printMsgs = function(type, o) {
+				switch(type) {
+					case 'info':
+						grunt.log.writeln(chalk.cyan(o));
+						break;
+					case 'warning':
+						grunt.log.writeln(chalk.yellow(o));
+						break;
+					default:
+						grunt.log.writeln(chalk.magenta(o));
+						break;
+				}
+			};
+		});
+	});
 };
