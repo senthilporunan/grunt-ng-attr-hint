@@ -1,6 +1,6 @@
 {
   "name": "grunt-ng-attr-hint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A static linting tool for angular ng directives",
   "homepage": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
   "repository": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
@@ -22,12 +22,15 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "chalk": "^1.1.0",
+    "extractjs": "^0.2.0",
+    "grunt": "~0.4.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-nodeunit": "~0.3.0",
-    "grunt": "~0.4.2",
     "jshint-stylish": "~0.1.5",
-    "load-grunt-tasks": "~0.3.0"
+    "load-grunt-tasks": "~0.3.0",
+    "ng-attr-hint": "^0.3.2"
   },
   "scripts": {
     "test": "grunt test"
