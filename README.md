@@ -1,4 +1,4 @@
-# grunt-angular-hint
+# grunt-ng-attr-hint
 
 > A static linting tool for angular ng directives
 
@@ -8,85 +8,66 @@ This plugin requires Grunt.
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-angular-hint --save-dev
+npm install grunt-ng-attr-hint --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-angular-hint');
+grunt.loadNpmTasks('grunt-ng-attr-hint');
 ```
 
-## The "angular_hint" task
+## The "ng-attr-hint" task
 
 ### Overview
-In your project's Gruntfile, add a section named `angular_hint` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `ng-attr-hint` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  angular_hint: {
+  'ng-attr-hint': {
     options: {
+      // Optional field
       // Task-specific options go here.
     },
-    your_target: {
+    files: [
       // Target-specific file lists and/or options go here.
-    },
-  },
-})
+    ]
+  }
+});
 ```
-
-### Options
-
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to do something with whatever. Options field are not necessary (optional field), just to pass files argument with required fileNames in it.
 
 ```js
 grunt.initConfig({
-  angular_hint: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
+  'ng-attr-hint': {
+      files: ['*.html']
+   }
+});
 ```
 
 #### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+In this example, `options:skip` rule got added. This rule will help to skip specified attributes in the list. `files:[]` - mandatory field to run rules.
 
 ```js
 grunt.initConfig({
-  angular_hint: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
+  'ng-attr-hint': {
+      options: {
+          skip: ['ngMessage','ngInit']
+      },
+      files: ['*.html']
+    }
+});
 ```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+0.0.1 - Released on 09-AUGUST-2015
 
 ## License
-Copyright (c) 2015 Senthil Porunan. Licensed under the MIT license.
+Copyright (c) 2015 [Senthil Porunan](http://www.toolitup.com). Licensed under the MIT license.
