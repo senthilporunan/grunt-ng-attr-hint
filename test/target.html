@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head> </head>
+<body>
+
+<!-- using attribute directives -->
+<ANY ng-repeat="exp in expression" ng-init="test1 = (data | orderBy:'name')">
+</ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test1 = data1 | orderBy:'name'">
+</ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = (data2) | orderBy:'name'">
+</ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = ((data2) | orderBy:'name')">
+  </ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = ('data2') | orderBy:'name'">
+  </ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = ('data2) | orderBy:''name'">
+  </ANY>
+
+</body>
+</html>

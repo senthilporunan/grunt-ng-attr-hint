@@ -16,7 +16,7 @@ module.exports = function (grunt) {
 
 		var done = this.async();
 		var options = this.options();
-		
+
 		this.files.forEach(function (file) {
 			var src = file.src.filter(function (filepath) {
 
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
 					return true;
 				}
 			});
-		
+
 			if (!src.length) {
 				grunt.fail.warn('Destination (' + chalk.cyan(file.dest) + ') not written because src files were empty.');
 			}
@@ -40,26 +40,33 @@ module.exports = function (grunt) {
 						done(false);
 					}
 					else  {
+						var contents = '';
 						ngAttrHint.format(data).forEach(function(o, index) {
-							formatOptions(data, o, index);
+							contents += formatOptions(data, o, index) + '\n';
 						});
+						grunt.file.write(file.dest, contents);
 						done();
 					}
 				});
 			});
 			
 			var formatOptions = function(data, o, index) {
-				var type = data[index]['type'];
-				var attrs = data[index]['attrs'];
+				var type = data[index]['type'] || [];
+				var attrs = data[index]['attrs'] || [];
+				var skip = options.skip || [];
 
 				var isBreak = data[index]['attrs'].some(function(attr) {
-					var isBreak = options.skip.some(function(skip) {
+					var isBreak = skip.some(function(skip) {
 						if (skip.indexOf(attr) !== -1) 	return true;
 					});
 					return isBreak;
 				});
 				
-				if (!isBreak) printMsgs(type, o);
+				if (!isBreak) {
+					printMsgs(type, o);
+					return o;
+				}
+				return '';
 			};
 			
 			var printMsgs = function(type, o) {

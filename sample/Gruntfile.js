@@ -1,12 +1,14 @@
 module.exports = function(grunt) {
     grunt.initConfig({
 		'ng-attr-hint': {
-			options: {
-			   skip: ['ngMessage', 'ngInit']
-			},
-			your_target: {
-			    files: ['*.html']
-			}
+		   'default-opt': {
+		   	    options: {
+					skip: ['ngInit']
+			    },
+			    files: {
+			      'dest.txt': ['*.html']
+			    }
+		   }	
 		}
     });
 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head> </head>
+<body>
+
+<a href='/' href='/test/'>
+  <i class='xuy' style='' class='adf'  ng-show="show" ng-hide='show'> tst>
+  </i>
+</a>
+<i ng-show> </i>
+
+
+<div ng-band='htmlContent'> </div>
+<div ng-cilck='htmlContent'> </div>
+<div ng-triim='htmlContent'> </div>
+<div ng-repaet='htmlContent'> </div>
+<div ng-desapled='htmlContent'> </div>
+
+
+<div ng-swipee-left='action'> </div>
+<div ng-swipe-left='action' ng-click='action2'> </div>
+<div ng-swipe-right='action' ng-click='action2'> </div>
+<div ng-swipe-right='action' ng-click='action2' ng-swipe-disable-mouse> </div>
+<div ng-click='action2' ng-swipe-disable-mouse> </div>
+
+
+<div ng-bind-html-unsafe='htmlContent'> </div>
+
+<div onchange='onChange()' ng-change='onChange()'> </div> 
+<div onchange='onChange()'> </div> 
+
+<a href='' ng-click='clickMe()'> click me </a>
+<div href='/'> </div> 
+
+<div>
+  <div>
+    <div ng-focus='test()' ng-blur='test()'>
+
+    </div>
+  </div>
+</div>
+
+<select ng-options="item.subItem as item.label for item in values track by item.id" ng-model="selected">
+</select>
+
+<select ng-options="item.subItem for item as values" ng-model="selected">
+</select>
+
+<svg cx="{{cx}}" ng-attr-cx="{{cx}}" > </svg>
+
+
+<input type='password' data-ng-trim='true'> </input>
+
+<div ng-init='counter = 1'> 
+	{{counter}}
+</div>
+
+<div ng-repeat="model in collection | orderBy: 'id' as filtered_result track by model.id">
+    {{model.name}}
+    <div ng-class-even="even-class"> </div>
+    <div> 
+    	<div>
+    		<div ng-class-even='even-class'>
+    		</div>
+    	</div>
+    </div>
+</div>
+
+<div ng-class-odd="odd-class"> </div>
+
+<div ng-repeat="model in collection track by model.id | orderBy: 'id' as filtered_result">
+    {{model.name}}
+</div>
+
+
+    <li class="animate-repeat" ng-repeat="friend in friends | filter:q as results">
+      [{{$index + 1}}] {{friend.name}} who is {{friend.age}} years old.
+    </li>
+
+
+
+<!-- using attribute directives -->
+<ANY ng-messages="expression" role="alert">
+  <ANY ng-message="stringValue">...</ANY>
+  <ANY ng-message="stringValue1, stringValue2, ...">...</ANY>
+</ANY>
+
+<!-- or by using element directives -->
+<ng-messages for="expression" role="alert">
+  <ng-message when="stringValue">...</ng-message>
+  <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+  <ANY ng-message="stringValue">...</ANY>
+  <ANY ng-message-exp="stringValue">...</ANY>
+  <ANY ng-messages-include="stringValue">...</ANY>
+</ng-messages>
+
+<any for="expression" role="alerts">
+  <ng-message when="stringValue">...</ng-message>
+  <ng-message when="stringValue1, stringValue2, ...">...</ng-message>
+  <ANY ng-message="stringValue">...</ANY>
+  <ANY ng-message-exp="stringValue">...</ANY>
+  <ANY ng-messages-include="stringValue">...</ANY>
+</any>
+<ng-messages for="expression" role="alert" ng-messages-multiple multiple>
+  <ng-message when="stringValue" ng-messages-multiple>...</ng-message>
+  <ng-message>...</ng-message>
+  <ng-message when="stringValue" when-exp="stringValue">...</ng-message>
+</ng-messages>
+
+
+<ANY ng-repeat="exp in expression" ng-init="test1 = (data | orderBy:'name')">
+</ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test1 = data1 | orderBy:'name'">
+</ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = (data2) | orderBy:'name'">
+</ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = ((data2) | orderBy:'name')">
+  </ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = ('data2') | orderBy:'name'">
+  </ANY>
+
+<ANY ng-repeat="exp in expression" ng-init="test2 = ('data2) | orderBy:''name'">
+  </ANY>
+  
+
+</body>
+</html>

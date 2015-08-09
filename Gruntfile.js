@@ -14,33 +14,26 @@ module.exports = function (grunt) {
 
   // Project configuration.
   grunt.initConfig({
-    jshint: {
-      all: [
-        'Gruntfile.js',
-        'tasks/*.js',
-        '<%= nodeunit.tests %>'
-      ],
-      options: {
-        jshintrc: '.jshintrc',
-        reporter: require('jshint-stylish')
-      }
-    },
 
-    // Before generating any new files, remove any previously-created files.
+	// Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['tmp']
+      tests: ['test/tmp']
     },
 
     // Configuration to be run (and then tested).
     'ng-attr-hint': {
-      default_options: {
-        files: ['/*.html']
+      'default_options': {
+        files: {
+			'test/tmp/default_options.txt' : ['test/*.html']
+		}
       },
-      custom_options: {
+      'custom_options': {
         options: {
           skip: ['ngInit']
         },
-        files: ['/*.html']
+        files: {
+			'test/tmp/custom_options.txt': ['test/*.html']
+		}
       }
     },
 
@@ -56,9 +49,8 @@ module.exports = function (grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
+  grunt.registerTask('default', ['clean', 'ng-attr-hint', 'nodeunit']);
   grunt.registerTask('test', ['clean', 'ng-attr-hint', 'nodeunit']);
 
-  // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
 
 };
