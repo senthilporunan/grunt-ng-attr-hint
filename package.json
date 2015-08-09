@@ -1,6 +1,6 @@
 {
   "name": "grunt-ng-attr-hint",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Grunt plugin for ng-attr-hint (A static linting tool for angular ng directives).",
   "homepage": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
   "repository": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",

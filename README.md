@@ -29,15 +29,16 @@ In your project's Gruntfile, add a section named `ng-attr-hint` to the data obje
 ```js
 grunt.initConfig({
   'ng-attr-hint': {
-    options: {
-      // Optional field
-      // Task-specific options go here.
-    },
-    files: [
-      // Target-specific file lists and/or options go here.
-    ]
-  }
-});
+      'your_target': {
+          options: {
+            // Optional field
+            // Task-specific options go here.
+          },
+          files: {
+            // Target-specific file lists and/or options go here.
+          }
+        }
+    });
 ```
 
 ### Usage Examples
@@ -48,7 +49,11 @@ In this example, the default options are used to do something with whatever. Opt
 ```js
 grunt.initConfig({
   'ng-attr-hint': {
-      files: ['*.html']
+      'your_target': {
+        files:{
+          'test/ng-attr-hint-result.txt': ['*.html']
+        }
+      }
    }
 });
 ```
@@ -59,10 +64,13 @@ In this example, `options:skip` rule got added. This rule will help to skip spec
 ```js
 grunt.initConfig({
   'ng-attr-hint': {
-      options: {
-          skip: ['ngMessage','ngInit']
-      },
-      files: ['*.html']
+      'your_target': {
+        options: {
+          skip: ['ngInit']
+        },
+        files: {
+          'test/ng-attr-hint-result.txt': ['*.html']
+        }
     }
 });
 ```
