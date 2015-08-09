@@ -1,5 +1,5 @@
 # grunt-ng-attr-hint
-
+[![npm version](https://badge.fury.io/js/ng-attr-hint.svg)](http://badge.fury.io/js/ng-attr-hint) ![license](https://img.shields.io/badge/license-MIT-blue.svg)
 > A static linting tool for angular ng directives
 
 ## Demo
