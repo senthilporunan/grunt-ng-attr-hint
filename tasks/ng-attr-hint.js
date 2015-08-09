@@ -8,12 +8,12 @@
 
 'use strict';
 var chalk = require('chalk');
+var ngAttrHint = require('ng-attr-hint');
 
 module.exports = function (grunt) {
 
 	grunt.registerMultiTask('ng-attr-hint', 'A static linting tool for angular ng directives', function () {
 
-		var ngAttrHint = require('ng-attr-hint');
 		var done = this.async();
 		var options = this.options();
 		

@@ -1,7 +1,7 @@
 {
   "name": "grunt-ng-attr-hint",
-  "version": "0.0.2",
-  "description": "A static linting tool for angular ng directives",
+  "version": "0.0.3",
+  "description": "Grunt plugin for ng-attr-hint (A static linting tool for angular ng directives).",
   "homepage": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
   "repository": "https://github.com/senthilporunan/grunt-ng-attr-hint.git",
   "author": {
@@ -10,9 +10,9 @@
     "url": "www.toolitup.com"
   },
   "keywords": [
-    "gruntplugin",
+    "grunt",
     "angular",
-    "toolitup",
+    "angular-directive",
     "ng-attr-hint",
     "hint"
   ],
@@ -21,16 +21,17 @@
     "node": ">= 0.8.0"
   },
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "chalk": "^1.1.0",
-    "extractjs": "^0.2.0",
+    "ng-attr-hint": "^0.3.2"
+  },
+  "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-nodeunit": "~0.3.0",
     "jshint-stylish": "~0.1.5",
-    "load-grunt-tasks": "~0.3.0",
-    "ng-attr-hint": "^0.3.2"
+    "load-grunt-tasks": "~0.3.0"
   },
   "scripts": {
     "test": "grunt test"
